@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./css/flipclock.css">
+    <link rel="stylesheet" href="./css/foundation.min.css"> 
+    <link rel="stylesheet" href="./css/theme.css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js""></script>
+    
+    <script src="./js/flipclock/libs/base.js"></script>
+    <script src="./js/flipclock/libs/flipclock.js"></script>
+    <script src="./js/flipclock/faces/dailycounter.js"></script>		
+    <script src="./js/moment.min.js"></script>
+    <title>Friday Timer</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1><a href="/">Time to party!</a></h1>
+
+    </header>
+    <div class="clock"></div>    
+    
+    <script type="text/javascript">
+     var clock;
+     
+     $(document).ready(function() {
+       var sow = moment().startOf('week');
+
+       var seconds_now = moment().diff(sow)/1000;
+       var seconds_fri = moment(sow).day(5).hours(18).diff(sow)/1000;
+       // in case we already passed the time, we add the time left
+       var seconds_eow = moment().endOf('week').diff(moment())/1000;       
+       var delta = seconds_fri - seconds_now;
+       var diff = (delta > 0) ? delta: (seconds_fri + seconds_eow);
+       
+      // Instantiate a coutdown FlipClock
+     clock = $('.clock').FlipClock(diff,{
+         clockFace: 'DailyCounter',
+         countdown: true,
+         showSeconds: true
+      });
+      });
+    </script>
+
+  </body>
+  
+</html>

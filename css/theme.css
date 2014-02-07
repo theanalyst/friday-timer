@@ -1,0 +1,19 @@
+.clock{
+    text-align: center;
+    position: relative;
+    margin: 2em 34em;
+}
+.header h1 {
+    color: #CB0E70;
+    font-family: "Open Sans",italic,sans-serif;
+    font-size: 100px;
+    margin: 1em 0;
+    text-align: center;
+    text-shadow: 0 -1px 0 #CF84AC, 0 1px 0 #8E094E, 0 0 40px #000000;
+}
+
+body {
+    background: url("../img/stardust.png") repeat scroll 0 0 rgba(0, 0, 0, 0) ;
+
+}
+
